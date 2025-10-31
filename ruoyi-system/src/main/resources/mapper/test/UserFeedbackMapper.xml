@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.test.mapper.UserFeedbackMapper">
+    <resultMap id="UserFeedbackResult" type="com.ruoyi.test.entity.UserFeedback">
+        <id     column="id"         property="id"/>
+        <result column="name"       property="name"/>
+        <result column="age"      property="age"/>
+        <result column="question"    property="question"/>
+        <result column="feedback"    property="feedback"/>
+    </resultMap>
+
+
+    <!-- 新增反馈 -->
+    <insert id="insertUserFeedback" parameterType="com.ruoyi.test.entity.UserFeedback" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user_feedback (name, age, question, feedback)
+        VALUES (#{name}, #{age}, #{question}, #{feedback})
+    </insert>
+    <!-- 查询所有反馈列表 -->
+    <select id="selectUserFeedbackList" resultMap="UserFeedbackResult">
+        SELECT
+        id,
+        name,
+        age,
+        question,
+        feedback
+        FROM user_feedback
+        <where>
+            <if test="name != null and name != ''">
+                AND name LIKE CONCAT('%', #{name}, '%')
+            </if>
+            <if test="question != null and question != ''">
+                AND question LIKE CONCAT('%', #{question}, '%')
+            </if>
+        </where>
+    </select>
+</mapper>
