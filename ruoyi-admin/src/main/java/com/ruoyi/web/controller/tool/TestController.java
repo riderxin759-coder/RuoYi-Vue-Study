@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiOperation;
  * 
  * @author ruoyi
  */
-@Api("用户信息管理")
+@Api("用户信息管理111")
 @RestController
 @RequestMapping("/test/user")
 public class TestController extends BaseController
@@ -38,7 +38,7 @@ public class TestController extends BaseController
         users.put(2, new UserEntity(2, "ry", "admin123", "15666666666"));
     }
 
-    @ApiOperation("获取用户列表")
+    @ApiOperation("获取用户列表111")
     @GetMapping("/list")
     public R<List<UserEntity>> userList()
     {
@@ -46,7 +46,7 @@ public class TestController extends BaseController
         return R.ok(userList);
     }
 
-    @ApiOperation("获取用户详细")
+    @ApiOperation("获取用户详细111")
     @ApiImplicitParam(name = "userId", value = "用户ID", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class)
     @GetMapping("/{userId}")
     public R<UserEntity> getUser(@PathVariable Integer userId)
