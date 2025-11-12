@@ -46,7 +46,7 @@ public class TestController extends BaseController
         return R.ok(userList);
     }
 
-    @ApiOperation("获取用户详细1")
+    @ApiOperation("获取用户详细")
     @ApiImplicitParam(name = "userId", value = "用户ID", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class)
     @GetMapping("/{userId}")
     public R<UserEntity> getUser(@PathVariable Integer userId)
@@ -61,7 +61,7 @@ public class TestController extends BaseController
         }
     }
 
-    @ApiOperation("新增用户")
+    @ApiOperation("新增用户1")
     @ApiImplicitParams({
         @ApiImplicitParam(name = "userId", value = "用户id", dataType = "Integer", dataTypeClass = Integer.class),
         @ApiImplicitParam(name = "username", value = "用户名称", dataType = "String", dataTypeClass = String.class),
