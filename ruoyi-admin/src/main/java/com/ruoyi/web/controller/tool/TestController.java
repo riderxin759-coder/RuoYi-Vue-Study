@@ -61,7 +61,7 @@ public class TestController extends BaseController
         }
     }
 
-    @ApiOperation("新增用户")
+    @ApiOperation("新增用户1")
     @ApiImplicitParams({
         @ApiImplicitParam(name = "userId", value = "用户id", dataType = "Integer", dataTypeClass = Integer.class),
         @ApiImplicitParam(name = "username", value = "用户名称", dataType = "String", dataTypeClass = String.class),
