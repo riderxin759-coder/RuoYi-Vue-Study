@@ -1,5 +1,6 @@
 package com.ruoyi.test.service;
 
+import com.ruoyi.business.domain.UserQuestion;
 import com.ruoyi.test.entity.UserFeedback;
 
 import java.util.List;
