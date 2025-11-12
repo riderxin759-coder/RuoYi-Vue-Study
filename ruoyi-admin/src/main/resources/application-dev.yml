@@ -42,7 +42,7 @@ spring:
   redis:
     host: localhost
     port: 6379
-
+    password: 171335
 logging:
   file:
     name: /home/ruoyi/logs/sys-info.log
