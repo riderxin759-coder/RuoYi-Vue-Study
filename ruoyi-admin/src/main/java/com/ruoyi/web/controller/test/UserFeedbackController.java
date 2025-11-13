@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api("用户问题")
+@Api("用户问题2")
 @RestController
 @RequestMapping("/user/feedback")
 public class UserFeedbackController extends BaseController {
@@ -21,7 +21,7 @@ public class UserFeedbackController extends BaseController {
     private UserFeedbackService userFeedbackService;
 
 
-    @ApiOperation("用户反馈")
+    @ApiOperation("用户反馈2")
     @Log(title = "用户反馈", businessType = BusinessType.INSERT)
     @PostMapping
 public AjaxResult add(@RequestBody UserFeedback q) {
