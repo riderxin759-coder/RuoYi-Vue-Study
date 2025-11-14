@@ -1,0 +1,51 @@
+server:
+  port: 8082
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/study?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 171335
+    druid:
+      initialSize: 5  # 连接池初始化时，创建的连接数
+      minIdle: 10  # 最小空闲连接数，连接池中保持的最小连接数
+      maxActive: 20  # 最大连接数，连接池最大可以同时活跃的连接数
+      maxWait: 60000  # 最大等待时间，获取连接时最大等待的时间，单位：毫秒。超过此时间会抛出异常
+      connectTimeout: 30000  # 连接超时时间，指的是创建连接的最大时间，单位：毫秒
+      socketTimeout: 60000  # 套接字超时时间，指的是客户端与数据库连接后，等待响应的最大时间，单位：毫秒
+      timeBetweenEvictionRunsMillis: 60000  # 执行空闲连接回收的间隔时间，单位：毫秒
+      minEvictableIdleTimeMillis: 300000  # 连接最小空闲时间，超过此时间的连接将被回收，单位：毫秒
+      maxEvictableIdleTimeMillis: 900000  # 连接最大空闲时间，超过此时间的连接将被回收，单位：毫秒
+      validationQuery: SELECT 1  # 校验连接是否有效的SQL语句
+      testWhileIdle: true  # 是否在空闲时进行校验，true：校验，false：不校验
+      testOnBorrow: false  # 是否在获取连接时进行校验
+      testOnReturn: false  # 是否在返回连接时进行校验
+      webStatFilter:
+        enabled: true  # 是否启用 web 统计功能
+      statViewServlet:
+        enabled: true  # 是否启用 Druid 管理页面
+        allow: ""  # 允许访问的IP地址，可以设置为空，表示所有IP都能访问
+        url-pattern: /druid/*  # 管理页面的访问路径
+        login-username: ruoyi  # 管理页面的用户名
+        login-password: 123456  # 管理页面的密码
+      filter:
+        stat:
+          enabled: true  # 启用 SQL 执行统计
+          log-slow-sql: true  # 是否记录慢查询日志
+          slow-sql-millis: 1000  # 慢查询的时间阈值，单位：毫秒，超过此时间的SQL会被记录
+          merge-sql: true  # 是否合并相同的SQL
+        wall:
+          config:
+            multi-statement-allow: true  # 是否允许多语句执行，默认为 false，设置为 true 允许多条 SQL 一起执行
+
+
+
+  redis:
+    host: localhost
+    port: 6379
+    password: 171335
+
+logging:
+  file:
+    name: /home/ruoyi/logs/sys-info.log
+  level:
+    root: info
